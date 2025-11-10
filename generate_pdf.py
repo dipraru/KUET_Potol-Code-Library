@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 import os
 import subprocess
-import hashlib
 import shutil
 import glob
 
@@ -14,20 +13,11 @@ code_dir = orig_dir if os.path.isdir(orig_dir) and any(
     os.scandir(orig_dir)
 ) else stripped_dir
 
-def file_hash(filepath):
-    """
-    Compute a short SHA-1 hash of the file's contents.
-    """
-    with open(filepath, 'rb') as f:
-        content = f.read()
-    return hashlib.sha1(content).hexdigest()[:8]
-
-
 def get_sections():
     """
     Walk the stripped code directory and collect sections and file metadata.
     Returns:
-        List of tuples: (section_name, [(relative_path, subsection_name, number_of_lines, hash_value), ...])
+        List of tuples: (section_name, [(relative_path, subsection_name, number_of_lines), ...])
     """
     sections = []
     for root, dirs, files in os.walk(code_dir):
@@ -41,15 +31,14 @@ def get_sections():
                 continue
             subsection_name = os.path.splitext(file_name)[0]
             relative_path = os.path.join(root, file_name)
-            # Count lines and hash content
+            # Count lines for reporting in the index.
             try:
                 with open(relative_path, 'r', encoding='utf-8', errors='ignore') as f:
                     lines = f.readlines()
                 number_of_lines = len(lines)
             except Exception:
                 number_of_lines = 0
-            hash_value = file_hash(relative_path)
-            subsections.append((relative_path, subsection_name, number_of_lines, hash_value))
+            subsections.append((relative_path, subsection_name, number_of_lines))
         if subsections:
             sections.append((section_name, subsections))
     # Sort sections alphabetically
@@ -94,11 +83,13 @@ def get_tex(sections):
     tex = ''
     for section_name, subsections in sections:
         tex += f'\\section{{{texify(section_name)}}}\n'
-        for rel_path, sub_name, n_lines, hval in subsections:
-            # Convert Windows backslashes for LaTeX
+        for rel_path, sub_name, n_lines in subsections:
+            # Convert Windows backslashes for LaTeX when referencing source files.
             input_path = rel_path.replace('\\', '/')
-            tex += (f'\\subsection{{\\small {texify(sub_name)}  '
-                    f'\\scriptsize [{n_lines} lines] - {hval}}}\n')
+            toc_label = f"{texify(sub_name)} ({n_lines} lines)"
+            display_label = (f"\\small {texify(sub_name)}  "
+                             f"\\scriptsize [{n_lines} lines]")
+            tex += (f'\\subsection[{toc_label}]{{{display_label}}}\n')
             tex += f'\\inputminted{{{get_style(rel_path)}}}{{"{input_path}"}}\n'
         tex += '\n'
     return tex
