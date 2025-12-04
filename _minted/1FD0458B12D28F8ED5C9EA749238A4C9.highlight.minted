@@ -1,8 +1,9 @@
 \begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
-\PYG{k}{const}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{N}\PYG{o}{=}\PYG{l+m+mf}{1e4}\PYG{o}{+}\PYG{l+m+mi}{5}\PYG{p}{;}
+\PYG{k}{const}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{N}\PYG{o}{=}\PYG{l+m+mf}{1e5}\PYG{o}{+}\PYG{l+m+mi}{5}\PYG{p}{;}
 \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{g}\PYG{p}{[}\PYG{n}{N}\PYG{p}{]}\PYG{p}{;}
 \PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{vis}\PYG{p}{[}\PYG{n}{N}\PYG{p}{]}\PYG{p}{,}\PYG{n}{dis}\PYG{p}{[}\PYG{n}{N}\PYG{p}{]}\PYG{p}{,}\PYG{n}{lo}\PYG{p}{[}\PYG{n}{N}\PYG{p}{]}\PYG{p}{,}\PYG{n}{isAP}\PYG{p}{[}\PYG{n}{N}\PYG{p}{]}\PYG{p}{;}
 \PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{timer}\PYG{p}{;}
+\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{pair}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{p}{,}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{ans}\PYG{p}{;}
 \PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{dfs}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{src}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{par}\PYG{p}{)}
 \PYG{p}{\PYGZob{}}
 \PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{child}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
@@ -14,6 +15,7 @@
 \PYG{+w}{            }\PYG{n}{dfs}\PYG{p}{(}\PYG{n}{v}\PYG{p}{,}\PYG{n}{src}\PYG{p}{)}\PYG{p}{;}
 \PYG{+w}{            }\PYG{n}{lo}\PYG{p}{[}\PYG{n}{src}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{min}\PYG{p}{(}\PYG{n}{lo}\PYG{p}{[}\PYG{n}{src}\PYG{p}{]}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{lo}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
 \PYG{+w}{            }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{par}\PYG{+w}{ }\PYG{o}{!}\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{\PYGZhy{}1}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{lo}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{o}{=}\PYG{+w}{ }\PYG{n}{dis}\PYG{p}{[}\PYG{n}{src}\PYG{p}{]}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{isAP}\PYG{p}{[}\PYG{n}{src}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{true}\PYG{p}{;}
+\PYG{+w}{            }\PYG{k}{if}\PYG{p}{(}\PYG{n}{lo}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]}\PYG{o}{\PYGZgt{}}\PYG{n}{dis}\PYG{p}{[}\PYG{n}{src}\PYG{p}{]}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{ans}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{p}{\PYGZob{}}\PYG{n}{min}\PYG{p}{(}\PYG{n}{v}\PYG{p}{,}\PYG{n}{src}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{max}\PYG{p}{(}\PYG{n}{v}\PYG{p}{,}\PYG{n}{src}\PYG{p}{)}\PYG{p}{\PYGZcb{}}\PYG{p}{)}\PYG{p}{;}
 \PYG{+w}{        }\PYG{p}{\PYGZcb{}}
 \PYG{+w}{        }\PYG{k}{else}\PYG{+w}{ }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{v}\PYG{+w}{ }\PYG{o}{!}\PYG{o}{=}\PYG{+w}{ }\PYG{n}{par}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{lo}\PYG{p}{[}\PYG{n}{src}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{min}\PYG{p}{(}\PYG{n}{lo}\PYG{p}{[}\PYG{n}{src}\PYG{p}{]}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{dis}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
 \PYG{+w}{    }\PYG{p}{\PYGZcb{}}

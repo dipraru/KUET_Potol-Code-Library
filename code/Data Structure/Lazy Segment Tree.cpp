@@ -73,19 +73,4 @@ struct SegmentTree {
     Node R = query(nd << 1 | 1, mid + 1, en, l, r);
     return merge(L, R);
   }
-
-  void updatePoint(int p, ll v) { updatePoint(1, 1, size, p, v); }
-  void updatePoint(int nd, int st, int en, int p, ll v) {
-    if (st == en) {
-      t[nd] = Node(v);
-      lazy[nd] = 0;
-      isLazy[nd] = 0;
-      return;
-    }
-    push(nd, st, en);
-    int mid = (st + en) >> 1;
-    if (p <= mid) updatePoint(nd << 1, st, mid, p, v);
-    else updatePoint(nd << 1 | 1, mid + 1, en, p, v);
-    pull(nd);
-  }
 };
