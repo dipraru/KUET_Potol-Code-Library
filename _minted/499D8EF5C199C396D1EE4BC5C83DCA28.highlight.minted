@@ -1,0 +1,21 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{bitset}\PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{17}\PYG{o}{\PYGZgt{}}\PYG{n}{BS}\PYG{p}{;}
+\PYG{n}{BS}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{BS}\PYG{p}{[}\PYG{l+m+mi}{7}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{;}
+\PYG{n}{cout}\PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}}\PYG{n}{BS}\PYG{p}{.}\PYG{n}{\PYGZus{}Find\PYGZus{}first}\PYG{p}{(}\PYG{p}{)}\PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}}\PYG{n}{endl}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// prints 1}
+\PYG{n}{bs}\PYG{p}{.}\PYG{n}{\PYGZus{}Find\PYGZus{}next}\PYG{p}{(}\PYG{n}{idx}\PYG{p}{)}\PYG{p}{.}\PYG{+w}{ }\PYG{n}{This}\PYG{+w}{ }\PYG{n}{function}\PYG{+w}{ }\PYG{n}{returns}\PYG{+w}{ }\PYG{n}{first}\PYG{+w}{ }\PYG{n}{set}\PYG{+w}{ }\PYG{n}{bit}\PYG{+w}{ }\PYG{n}{after}\PYG{+w}{ }\PYG{n}{index}\PYG{+w}{ }\PYG{n}{idx}\PYG{p}{.}\PYG{k}{for}\PYG{+w}{ }\PYG{n}{example}\PYG{o}{:}
+\PYG{n}{bitset}\PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{17}\PYG{o}{\PYGZgt{}}\PYG{n}{BS}\PYG{p}{;}
+\PYG{n}{BS}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{BS}\PYG{p}{[}\PYG{l+m+mi}{7}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{;}
+\PYG{n}{cout}\PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}}\PYG{n}{BS}\PYG{p}{.}\PYG{n}{\PYGZus{}Find\PYGZus{}next}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}}\PYG{l+s+sc}{\PYGZsq{}}\PYG{l+s+sc}{,}\PYG{l+s+sc}{\PYGZsq{}}\PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}}\PYG{n}{BS}\PYG{p}{.}\PYG{n}{\PYGZus{}Find\PYGZus{}next}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{)}\PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}}\PYG{n}{endl}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// prints 7,7}
+\PYG{n}{So}\PYG{+w}{ }\PYG{k}{this}\PYG{+w}{ }\PYG{n}{code}\PYG{+w}{ }\PYG{n}{will}\PYG{+w}{ }\PYG{n}{print}\PYG{+w}{ }\PYG{n}{all}\PYG{+w}{ }\PYG{n}{of}\PYG{+w}{ }\PYG{n}{the}\PYG{+w}{ }\PYG{n}{set}\PYG{+w}{ }\PYG{n}{bits}\PYG{+w}{ }\PYG{n}{of}\PYG{+w}{ }\PYG{n}{BS}\PYG{o}{:}
+
+\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{=}\PYG{n}{BS}\PYG{p}{.}\PYG{n}{\PYGZus{}Find\PYGZus{}first}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{BS}\PYG{p}{.}\PYG{n}{size}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{BS}\PYG{p}{.}\PYG{n}{\PYGZus{}Find\PYGZus{}next}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)}\PYG{p}{)}
+\PYG{+w}{    }\PYG{n}{cout}\PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}}\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}}\PYG{n}{endl}\PYG{p}{;}
+\PYG{c+c1}{//Note that there isn\PYGZsq{}t any set bit after idx, BS.\PYGZus{}Find\PYGZus{}next(idx) will return BS.size(); same as calling BS.\PYGZus{}Find\PYGZus{}first() when bitset is clear;}
+\PYG{n}{b}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{.}\PYG{n}{test}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)}
+\PYG{n}{b}\PYG{p}{.}\PYG{n}{set}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{.}\PYG{n}{set}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{.}\PYG{n}{set}\PYG{p}{(}\PYG{n}{i}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{val}\PYG{p}{)}
+\PYG{n}{b}\PYG{p}{.}\PYG{n}{reset}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{.}\PYG{n}{reset}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)}
+\PYG{n}{b}\PYG{p}{.}\PYG{n}{flip}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{.}\PYG{n}{flip}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)}
+\PYG{n}{b}\PYG{p}{.}\PYG{n}{count}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{.}\PYG{n}{size}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{.}\PYG{n}{any}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{.}\PYG{n}{none}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{.}\PYG{n}{all}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{b}\PYG{p}{.}\PYG{n}{to\PYGZus{}ulong}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{.}\PYG{n}{to\PYGZus{}ullong}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{.}\PYG{n}{to\PYGZus{}string}\PYG{p}{(}\PYG{p}{)}
+
+\end{MintedVerbatim}

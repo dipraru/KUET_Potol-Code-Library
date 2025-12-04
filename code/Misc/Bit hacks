@@ -10,3 +10,16 @@ next number after x with the same number of bits set.
   __builtin_popcountll(x) // for long long
 # __builtin_clz(x) // number of leading zeros
   __builtin_ctz(x) // number of trailing zeros, they also have long long version
+# Some properties of bitwise operations:
+a|b = a xor b + a&b
+a xor (a&b) = (a|b) xor b
+b xor (a&b) = (a|b) xor a
+(a&b) xor (a|b) = a xor b
+# Addition:
+a+b = a|b + a&b
+a+b = a xor b + 2(a&b)
+# Subtraction:
+a-b = (a xor (a&b))-((a|b) xor a)
+a-b = ((a|b) xor b)-((a|b) xor a)
+a-b = (a xor (a&b))-(b xor (a&b))
+a-b = ((a|b) xor b)-(b xor (a&b))

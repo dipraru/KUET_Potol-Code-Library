@@ -1,0 +1,8 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{floyd}\PYG{p}{(}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{k}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{k}\PYG{o}{\PYGZlt{}}\PYG{o}{=}\PYG{n}{n}\PYG{p}{;}\PYG{n}{k}\PYG{o}{+}\PYG{o}{+}\PYG{p}{)}
+\PYG{+w}{        }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{u}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{u}\PYG{o}{\PYGZlt{}}\PYG{o}{=}\PYG{n}{n}\PYG{p}{;}\PYG{n}{u}\PYG{o}{+}\PYG{o}{+}\PYG{p}{)}
+\PYG{+w}{            }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{v}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{v}\PYG{o}{\PYGZlt{}}\PYG{o}{=}\PYG{n}{n}\PYG{p}{;}\PYG{n}{v}\PYG{o}{+}\PYG{o}{+}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{d}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]}\PYG{o}{=}\PYG{n}{min}\PYG{p}{(}\PYG{n}{d}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]}\PYG{p}{[}\PYG{n}{k}\PYG{p}{]}\PYG{o}{+}\PYG{n}{d}\PYG{p}{[}\PYG{n}{k}\PYG{p}{]}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{d}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

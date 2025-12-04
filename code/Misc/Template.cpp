@@ -5,9 +5,11 @@ using namespace __gnu_pbds;
 template <typename T>using orderedSet = tree<T, null_type, less_equal<T>, rb_tree_tag, tree_order_statistics_node_update>;
 //order_of_key(k) - number of element strictly less than k
 //find_by_order(k) - k'th element in set.(0 indexed)(iterator)
-mt19937 mt(std::chrono::steady_clock::now(). time_since_epoch().count());
-//uniform_int_distribution<int> dist(1, 100);
-
+mt19937_64 rnd(chrono::steady_clock::now().time_since_epoch().count());
+long long get_rand(long long l, long long r) { // random number from l to r
+  assert(l <= r);
+  return l + rnd() % (r - l + 1);
+}
 struct custom_hash {
   static uint64_t splitmix64(uint64_t x) {
     x += 0x9e3779b97f4a7c15;
@@ -22,7 +24,6 @@ struct custom_hash {
 };
 //pair (a, b) er jonne a * MOD + b
 gp_hash_table<int, int, custom_hash> mp;
-
 
 int main(int argc, char* argv[]) {
   ios_base::sync_with_stdio(false);//DON'T CC++

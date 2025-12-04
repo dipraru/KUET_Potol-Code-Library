@@ -90,7 +90,7 @@ def get_tex(sections):
             display_label = (f"\\small {texify(sub_name)}  "
                              f"\\scriptsize [{n_lines} lines]")
             tex += (f'\\subsection[{toc_label}]{{{display_label}}}\n')
-            tex += f'\\inputminted{{{get_style(rel_path)}}}{{"{input_path}"}}\n'
+            tex += f'\\inputminted{{{get_style(rel_path)}}}{{{input_path}}}\n'
         tex += '\n'
     return tex
 

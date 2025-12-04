@@ -46,30 +46,3 @@ struct Hashing {
     return get_hash(1, 1, n, m);
   }
 };
-int32_t main() {
-  ios_base::sync_with_stdio(0);
-  cin.tie(0);
-  int t;
-  cin >> t;
-  while (t--) {
-    int n, m;
-    cin >> n >> m;
-    vector<string> a(n);
-    for (int i = 0; i < n; i++) cin >> a[i];
-    Hashing H(a);
-    int x, y;
-    cin >> x >> y;
-    vector<string> b(x);
-    for (int i = 0; i < x; i++) cin >> b[i];
-    auto z = Hashing(b).get_hash();
-    int ans = 0;
-    for (int i = 1; i <= n; i++) {
-      for (int j = 1; j <= m; j++) {
-        if (i + x - 1 <= n && j + y - 1 <= m && H.get_hash(i, j, i + x - 1, j + y - 1) == z) ans++;
-      }
-    }
-    cout << ans << '\n';
-  }
-  return 0;
-}
-// https://vjudge.net/problem/UVA-11019

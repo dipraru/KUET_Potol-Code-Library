@@ -1,37 +1,30 @@
-#include <bits/stdc++.h>
-using namespace std;
-
-using ll = long long;
-
-struct Manacher
+int p[2*N];
+void manacher (string s)
 {
-    vector<int> p[2];
-    // p[1][i] = (max odd length palindrome centered at i) / 2 [floor division]
-    // p[0][i] = same for even, it considers the right center
-    // e.g. for s = "abbabba", p[1][3] = 3, p[0][2] = 2
-    Manacher(string s)
+    int n=s.size();
+    char ss[2*n+2];
+    ss[2*n+1]='\0';
+    for(int i=0; i<2*n+1; i++)
     {
-        int n = s.size();
-        p[0].resize(n + 1);
-        p[1].resize(n);
-        for (int z = 0; z < 2; z++)
+        p[i]=0;
+        if(i%2==0)ss[i]='#';
+        else ss[i]=s[i/2];
+    }
+    int l = 0, r = 0;
+    for(int i = 0; i <=2*n; i++)
+    {
+        p[i] = max(0, min(r - i, p[l + (r - i)]));
+        while((p[i]+i<=2*n)&&(i-p[i]>=0)&&(ss[i - p[i]] == ss[i + p[i]]))
         {
-            for (int i = 0, l = 0, r = 0; i < n; i++)
-            {
-                int t = r - i + !z;
-                if (i < r)
-                    p[z][i] = min(t, p[z][l + t]);
-                int L = i - p[z][i], R = i + p[z][i] - !z;
-                while (L >= 1 && R + 1 < n && s[L - 1] == s[R + 1])
-                    p[z][i]++, L--, R++;
-                if (R > r)
-                    l = L, r = R;
-            }
+            p[i]++;
+        }
+        if(i + p[i] > r)
+        {
+            l = i - p[i], r = i + p[i];
         }
     }
-    bool is_palindrome(int l, int r)
-    {
-        int mid = (l + r + 1) / 2, len = r - l + 1;
-        return 2 * p[len % 2][mid] + len % 2 >= len;
-    }
-};
+}
+bool check(int l,int r)
+{
+    return p[l+r+1]>r-l;
+}

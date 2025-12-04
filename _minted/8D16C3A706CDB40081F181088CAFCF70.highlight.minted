@@ -1,0 +1,27 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYGZsh{} x \PYGZam{} \PYGZhy{}x is the least bit in x.
+\PYGZsh{} iterate over all the subsets of the mask
+for (int s=m; ; s=(s\PYGZhy{}1)\PYGZam{}m) \PYGZob{}
+ ... you can use s ...
+ if (s==0)  break;
+\PYGZcb{}
+\PYGZsh{} c = x\PYGZam{}\PYGZhy{}x, r = x+c; (((rˆx) \PYGZgt{}\PYGZgt{} 2)/c) | r is the
+next number after x with the same number of bits set.
+\PYGZsh{} \PYGZus{}\PYGZus{}builtin\PYGZus{}popcount(x) //number of ones in binary
+  \PYGZus{}\PYGZus{}builtin\PYGZus{}popcountll(x) // for long long
+\PYGZsh{} \PYGZus{}\PYGZus{}builtin\PYGZus{}clz(x) // number of leading zeros
+  \PYGZus{}\PYGZus{}builtin\PYGZus{}ctz(x) // number of trailing zeros, they also have long long version
+\PYGZsh{} Some properties of bitwise operations:
+a|b = a xor b + a\PYGZam{}b
+a xor (a\PYGZam{}b) = (a|b) xor b
+b xor (a\PYGZam{}b) = (a|b) xor a
+(a\PYGZam{}b) xor (a|b) = a xor b
+\PYGZsh{} Addition:
+a+b = a|b + a\PYGZam{}b
+a+b = a xor b + 2(a\PYGZam{}b)
+\PYGZsh{} Subtraction:
+a\PYGZhy{}b = (a xor (a\PYGZam{}b))\PYGZhy{}((a|b) xor a)
+a\PYGZhy{}b = ((a|b) xor b)\PYGZhy{}((a|b) xor a)
+a\PYGZhy{}b = (a xor (a\PYGZam{}b))\PYGZhy{}(b xor (a\PYGZam{}b))
+a\PYGZhy{}b = ((a|b) xor b)\PYGZhy{}(b xor (a\PYGZam{}b))
+\end{MintedVerbatim}

@@ -10,3 +10,10 @@ So this code will print all of the set bits of BS:
 for(int i=BS._Find_first();i< BS.size();i = BS._Find_next(i))
     cout<<i<<endl;
 //Note that there isn't any set bit after idx, BS._Find_next(idx) will return BS.size(); same as calling BS._Find_first() when bitset is clear;
+b[i], b.test(i)
+b.set(), b.set(i), b.set(i, val)
+b.reset(), b.reset(i)
+b.flip(), b.flip(i)
+b.count(), b.size(), b.any(), b.none(), b.all()
+b.to_ulong(), b.to_ullong(), b.to_string()
+
