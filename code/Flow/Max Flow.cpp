@@ -6,7 +6,6 @@ struct MaxFlow
     };
     int n;
     vector<vector<Edge>> adj;
-
     MaxFlow(int n) : n(n)
     {
         adj.resize(n + 1);
@@ -34,8 +33,7 @@ struct MaxFlow
                     visited[e.v] = true;
                     parent[e.v] = u;
                     edge_index[e.v] = i;
-                    if (e.v == t)
-                        return true;
+                    if (e.v == t) return true;
                     q.push(e.v);
                 }
             }
@@ -76,10 +74,7 @@ struct MaxFlow
         visited[u] = true;
         for (const auto &e : adj[u])
         {
-            if (e.cap > 0 && !visited[e.v])
-            {
-                dfs(e.v, visited);
-            }
+            if (e.cap > 0 && !visited[e.v]) dfs(e.v, visited);
         }
     }
     vector<pair<int, int>> find_min_cut(int s)
@@ -89,16 +84,9 @@ struct MaxFlow
         vector<pair<int, int>> cut_edges;
         for (int u = 1; u <= n; u++)
         {
-            if (visited[u])
-            {
-                for (const auto &e : adj[u])
-                {
-                    if (!visited[e.v] && e.cap == 0)
-                    {
-                        cut_edges.emplace_back(u, e.v);
-                    }
-                }
-            }
+            if (!visited[u]) continue;
+            for (const auto &e : adj[u])
+                if (!visited[e.v] && e.cap == 0) cut_edges.emplace_back(u, e.v);
         }
         return cut_edges;
     }

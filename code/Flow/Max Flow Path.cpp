@@ -34,8 +34,7 @@ struct MaxFlowpath
                     visited[e.v] = true;
                     parent[e.v] = u;
                     edge_index[e.v] = i;
-                    if (e.v == t)
-                        return true;
+                    if (e.v == t) return true;
                     q.push(e.v);
                 }
             }

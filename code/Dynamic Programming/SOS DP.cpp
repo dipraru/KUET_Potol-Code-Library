@@ -1,7 +1,6 @@
 const ll MLOG = 20;
 const ll MAXN = (1<<MLOG);
 ll dp[MAXN]; ll freq[MAXN];
-
 void forward1(){ // adding element to all its super set
     for(ll bit = 0; bit < MLOG; bit++){
         for(ll i = 0; i < MAXN; i++){
@@ -11,7 +10,6 @@ void forward1(){ // adding element to all its super set
         }
     }
 }
-
 void backward1(){
     for(ll bit = 0; bit < MLOG; bit++){
         for(ll i = MAXN-1; i >= 0; i--){
@@ -21,7 +19,6 @@ void backward1(){
         }
     }
 }
-
 void forward2(){ // add elements to its subsets
     for(ll bit = 0; bit < MLOG; bit++){
         for(ll i = MAXN-1; i >= 0; i--){
@@ -31,7 +28,6 @@ void forward2(){ // add elements to its subsets
         }
     }
 }
-
 void backward2(){
     for(ll bit = 0; bit < MLOG; bit++){
         for(ll i = 0; i < MAXN; i++){
