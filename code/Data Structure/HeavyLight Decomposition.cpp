@@ -1,54 +1,72 @@
-vector<int>g[N];
-int b[N],a[N];
-int parent[N], depth[N], heavy[N], head[N], pos[N];
-int timer=0;
-int dfs(int node)
-{
-    int msi=0,si=1;
-    heavy[node]=0;
-    for(auto it:g[node])
+struct HLD{
+    vector<vector<int>> adj;
+    vector<int> par, dep, heavy, head, pos, sub;
+    SegTree segTree;
+    int curPos;
+    HLD(int n) : adj(n + 1),par(n + 1, -1),dep(n + 1, 0),heavy(n + 1, -1),head(n + 1),pos(n + 1), sub(n + 1, 0),segTree(n),curPos(1) {}
+    int dfs(int u)
     {
-        if(it==parent[node])continue;
-        parent[it]=node;
-        depth[it]=depth[node]+1;
-        int csi=dfs(it);
-        si+=csi;
-        if(csi>msi)
+        sub[u] = 1;
+        int mxsub = 0;
+        for (int v : adj[u])
         {
-            msi=csi;
-            heavy[node]=it;
+            if (v == par[u])
+                continue;
+            par[v] = u;
+            dep[v] = dep[u] + 1;
+            int subtree = dfs(v);
+            sub[u] += subtree;
+            if (subtree > mxsub)
+            {
+                mxsub = subtree;
+                heavy[u] = v;
+            }
+        }
+        return sub[u];
+    }
+    void decompose(int u, int h)
+    {
+        head[u] = h;
+        pos[u] = curPos++;
+        if (heavy[u] != -1)
+            decompose(heavy[u], h);
+        for (int v : adj[u])
+        {
+            if (v != par[u] && v != heavy[u])
+                decompose(v, v);
         }
     }
-    return si;
-}
-void decompose(int node,int h)
-{
-    head[node]=h;
-    timer++;
-    pos[node]=timer;
-    b[timer]=a[node];
-    if(heavy[node]!=0)
+    void init(int root = 1)
     {
-        decompose(heavy[node],h);
+        dfs(root);
+        decompose(root, root);
     }
-    for(auto it:g[node])
+    void updatePath(int u, int v, ll value, bool isEdge = false)
     {
-        if(it==parent[node]||it==heavy[node])continue;
-        decompose(it,it);
+        while (head[u] != head[v])
+        {
+            if (dep[head[u]] < dep[head[v]])
+                swap(u, v);
+            segTree.update(pos[head[u]], pos[u], value);
+            u = par[head[u]];
+        }
+        if (dep[u] > dep[v])
+            swap(u, v);
+        segTree.update(pos[u] + isEdge, pos[v], value);
     }
-}
-int query(int x,int y,int n)
-{
-    int res = 0;
-    for (; head[x] != head[y]; y = parent[head[y]])
+    ll queryPath(int u, int v, bool isEdge = false)
     {
-    
-        if (depth[head[x]] > depth[head[y]])swap(x, y);
-        if(pos[y]-pos[head[y]]<=10)for(int i=pos[y]; i>=pos[head[y]]; i--)res=max(res,b[i]);
-        else res=max(res,ans(1,1,n,pos[head[y]], pos[y]));
+        ll result = 0;
+        while (head[u] != head[v])
+        {
+            if (dep[head[u]] < dep[head[v]])
+                swap(u, v);
+            result = max(result, segTree.query(pos[head[u]], pos[u]));
+            u = par[head[u]];
+        }
+        if (dep[u] > dep[v])
+            swap(u, v);
+        result = max(result, segTree.query(pos[u] + isEdge, pos[v]));
+        return result;
     }
-    if (depth[x] > depth[y])swap(x, y);
-    if(pos[y]-pos[x]<=10) for(int i=pos[y]; i>=pos[x]; i--)res=max(res,b[i]);
-    else res=max(res,ans(1,1,n,pos[x], pos[y]));
-    return res;
-}
+};

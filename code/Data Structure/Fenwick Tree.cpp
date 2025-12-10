@@ -25,4 +25,22 @@ struct FenwickTree
         }
         return icount;
     }
+    
+    int kth(int k)
+    {
+        if (k <= 0 || query(n) < k) return -1;
+        int idx = 0, mask = 1 << (31 - __builtin_clz(n));
+        int acc = 0;
+        while (mask)
+        {
+            int next = idx + mask;
+            if (next <= n && acc + tree[next] < k)
+            {
+                idx = next;
+                acc += tree[next];
+            }
+            mask >>= 1;
+        }
+        return idx + 1;
+    }
 };
