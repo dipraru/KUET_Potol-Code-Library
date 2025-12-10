@@ -13,14 +13,12 @@
 \PYG{+w}{        }\PYG{n}{level}\PYG{p}{.}\PYG{n}{resize}\PYG{p}{(}\PYG{n}{n}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{;}
 \PYG{+w}{        }\PYG{n}{ptr}\PYG{p}{.}\PYG{n}{resize}\PYG{p}{(}\PYG{n}{n}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{;}
 \PYG{+w}{    }\PYG{p}{\PYGZcb{}}
-
 \PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{add\PYGZus{}edge}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{u}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{v}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{cap}\PYG{p}{)}
 \PYG{+w}{    }\PYG{p}{\PYGZob{}}
 \PYG{+w}{        }\PYG{n}{capacity}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{+}\PYG{o}{=}\PYG{+w}{ }\PYG{n}{cap}\PYG{p}{;}
 \PYG{+w}{        }\PYG{n}{adj}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{v}\PYG{p}{)}\PYG{p}{;}
 \PYG{+w}{        }\PYG{n}{adj}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)}\PYG{p}{;}
 \PYG{+w}{    }\PYG{p}{\PYGZcb{}}
-
 \PYG{+w}{    }\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n}{bfs}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{s}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{t}\PYG{p}{)}
 \PYG{+w}{    }\PYG{p}{\PYGZob{}}
 \PYG{+w}{        }\PYG{n}{fill}\PYG{p}{(}\PYG{n}{level}\PYG{p}{.}\PYG{n}{begin}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{level}\PYG{p}{.}\PYG{n}{end}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{)}\PYG{p}{;}
@@ -43,7 +41,6 @@
 \PYG{+w}{        }\PYG{p}{\PYGZcb{}}
 \PYG{+w}{        }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{level}\PYG{p}{[}\PYG{n}{t}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{!}\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{;}
 \PYG{+w}{    }\PYG{p}{\PYGZcb{}}
-
 \PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{dfs}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{u}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{t}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{flow}\PYG{p}{)}
 \PYG{+w}{    }\PYG{p}{\PYGZob{}}
 \PYG{+w}{        }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{u}\PYG{+w}{ }\PYG{o}{=}\PYG{o}{=}\PYG{+w}{ }\PYG{n}{t}\PYG{+w}{ }\PYG{o}{|}\PYG{o}{|}\PYG{+w}{ }\PYG{n}{flow}\PYG{+w}{ }\PYG{o}{=}\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{)}
@@ -64,7 +61,6 @@
 \PYG{+w}{        }\PYG{p}{\PYGZcb{}}
 \PYG{+w}{        }\PYG{k}{return}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
 \PYG{+w}{    }\PYG{p}{\PYGZcb{}}
-
 \PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{max\PYGZus{}flow}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{s}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{t}\PYG{p}{)}
 \PYG{+w}{    }\PYG{p}{\PYGZob{}}
 \PYG{+w}{        }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{flow}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}

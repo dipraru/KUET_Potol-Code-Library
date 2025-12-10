@@ -20,3 +20,22 @@ int dcp(int st, int ed, int opt1, int opt2, int n)
     opt2 = dcp(mid + 1, ed, opt, opt2, n);
     return opt2;
 }
+//main
+int main()
+{
+    fastio
+    int n,k;
+    cin>>n>>k;
+    for(int i=1; i<=n; i++)cin>>a[i];
+    gen(n);
+    make(1,1,n);
+    tk[0]=0;
+    for(int i=1; i<=n; i++)tk[i]=0;
+    for(int kk=1; kk<=k; kk++)
+    {
+        for(int i=0; i<=n; i++)tem[i]=tk[i];
+        int opt=dcp(1,n,1,n,n);
+    }
+    cout<<tk[n]<<"\n";
+}
+

@@ -10,14 +10,12 @@
 \PYG{+w}{        }\PYG{n}{capacity}\PYG{p}{.}\PYG{n}{assign}\PYG{p}{(}\PYG{n}{n}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{n}{n}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
 \PYG{+w}{        }\PYG{n}{adj}\PYG{p}{.}\PYG{n}{resize}\PYG{p}{(}\PYG{n}{n}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{;}
 \PYG{+w}{    }\PYG{p}{\PYGZcb{}}
-
 \PYG{+w}{    }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{add\PYGZus{}edge}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{u}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{v}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{cap}\PYG{p}{)}
 \PYG{+w}{    }\PYG{p}{\PYGZob{}}
 \PYG{+w}{        }\PYG{n}{capacity}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{+}\PYG{o}{=}\PYG{+w}{ }\PYG{n}{cap}\PYG{p}{;}
 \PYG{+w}{        }\PYG{n}{adj}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{v}\PYG{p}{)}\PYG{p}{;}
 \PYG{+w}{        }\PYG{n}{adj}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// Reverse edge}
 \PYG{+w}{    }\PYG{p}{\PYGZcb{}}
-
 \PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{bfs}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{s}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{t}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{parent}\PYG{p}{)}
 \PYG{+w}{    }\PYG{p}{\PYGZob{}}
 \PYG{+w}{        }\PYG{n}{fill}\PYG{p}{(}\PYG{n}{parent}\PYG{p}{.}\PYG{n}{begin}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{parent}\PYG{p}{.}\PYG{n}{end}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{)}\PYG{p}{;}
@@ -35,15 +33,13 @@
 \PYG{+w}{                }\PYG{p}{\PYGZob{}}
 \PYG{+w}{                    }\PYG{n}{parent}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{u}\PYG{p}{;}
 \PYG{+w}{                    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{new\PYGZus{}flow}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{min}\PYG{p}{(}\PYG{n}{flow}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{capacity}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
-\PYG{+w}{                    }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{v}\PYG{+w}{ }\PYG{o}{=}\PYG{o}{=}\PYG{+w}{ }\PYG{n}{t}\PYG{p}{)}
-\PYG{+w}{                        }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{new\PYGZus{}flow}\PYG{p}{;}
+\PYG{+w}{                    }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{v}\PYG{+w}{ }\PYG{o}{=}\PYG{o}{=}\PYG{+w}{ }\PYG{n}{t}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{new\PYGZus{}flow}\PYG{p}{;}
 \PYG{+w}{                    }\PYG{n}{q}\PYG{p}{.}\PYG{n}{push}\PYG{p}{(}\PYG{p}{\PYGZob{}}\PYG{n}{v}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{new\PYGZus{}flow}\PYG{p}{\PYGZcb{}}\PYG{p}{)}\PYG{p}{;}
 \PYG{+w}{                }\PYG{p}{\PYGZcb{}}
 \PYG{+w}{            }\PYG{p}{\PYGZcb{}}
 \PYG{+w}{        }\PYG{p}{\PYGZcb{}}
 \PYG{+w}{        }\PYG{k}{return}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
 \PYG{+w}{    }\PYG{p}{\PYGZcb{}}
-
 \PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{max\PYGZus{}flow}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{s}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{t}\PYG{p}{)}
 \PYG{+w}{    }\PYG{p}{\PYGZob{}}
 \PYG{+w}{        }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{flow}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{new\PYGZus{}flow}\PYG{p}{;}

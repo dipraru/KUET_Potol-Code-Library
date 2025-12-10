@@ -1,8 +1,0 @@
-\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
-\PYG{c+c1}{//sort function}
-\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n+nf}{cmp}\PYG{p}{(}\PYG{n}{query}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{query}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{)}
-\PYG{p}{\PYGZob{}}
-\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{a}\PYG{p}{.}\PYG{n}{l}\PYG{o}{/}\PYG{n}{B}\PYG{+w}{ }\PYG{o}{!}\PYG{o}{=}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{.}\PYG{n}{l}\PYG{o}{/}\PYG{n}{B}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{.}\PYG{n}{l}\PYG{o}{/}\PYG{n}{B}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{.}\PYG{n}{l}\PYG{o}{/}\PYG{n}{B}\PYG{p}{;}
-\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{p}{(}\PYG{p}{(}\PYG{n}{a}\PYG{p}{.}\PYG{n}{l}\PYG{+w}{ }\PYG{o}{/}\PYG{+w}{ }\PYG{n}{B}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{?}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{.}\PYG{n}{r}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{.}\PYG{n}{r}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{.}\PYG{n}{r}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{.}\PYG{n}{r}\PYG{p}{;}
-\PYG{p}{\PYGZcb{}}
-\end{MintedVerbatim}

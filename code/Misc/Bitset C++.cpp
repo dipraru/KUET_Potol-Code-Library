@@ -16,4 +16,3 @@ b.reset(), b.reset(i)
 b.flip(), b.flip(i)
 b.count(), b.size(), b.any(), b.none(), b.all()
 b.to_ulong(), b.to_ullong(), b.to_string()
-

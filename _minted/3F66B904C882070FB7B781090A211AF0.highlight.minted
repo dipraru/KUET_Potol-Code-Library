@@ -1,7 +1,4 @@
 \begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
-\PYG{c+cp}{\PYGZsh{}}\PYG{c+cp}{include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}bits/stdc++.h\PYGZgt{}}
-\PYG{k}{using}\PYG{+w}{ }\PYG{k}{namespace}\PYG{+w}{ }\PYG{n+nn}{std}\PYG{p}{;}
-
 \PYG{c+c1}{// Build a max\PYGZhy{}heap Cartesian tree over `h[0..n\PYGZhy{}1]`.}
 \PYG{c+c1}{// Returns the index of the root.}
 \PYG{c+c1}{// Outputs left\PYGZhy{}child in L[], right\PYGZhy{}child in R[].}
@@ -16,7 +13,6 @@
 \PYG{+w}{    }\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{+}\PYG{o}{+}\PYG{p}{)}
 \PYG{+w}{    }\PYG{p}{\PYGZob{}}
 \PYG{+w}{        }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{last}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{;}
-\PYG{+w}{        }\PYG{c+c1}{// Pop all nodes shorter than h[i]; they become left subtree of i}
 \PYG{+w}{        }\PYG{k}{while}\PYG{+w}{ }\PYG{p}{(}\PYG{o}{!}\PYG{n}{st}\PYG{p}{.}\PYG{n}{empty}\PYG{p}{(}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{h}\PYG{p}{[}\PYG{n}{st}\PYG{p}{.}\PYG{n}{top}\PYG{p}{(}\PYG{p}{)}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{h}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{p}{)}
 \PYG{+w}{        }\PYG{p}{\PYGZob{}}
 \PYG{+w}{            }\PYG{n}{last}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{st}\PYG{p}{.}\PYG{n}{top}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
@@ -24,20 +20,16 @@
 \PYG{+w}{        }\PYG{p}{\PYGZcb{}}
 \PYG{+w}{        }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{o}{!}\PYG{n}{st}\PYG{p}{.}\PYG{n}{empty}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
 \PYG{+w}{        }\PYG{p}{\PYGZob{}}
-\PYG{+w}{            }\PYG{c+c1}{// The current top is the nearest greater on the left}
 \PYG{+w}{            }\PYG{n}{parent}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{st}\PYG{p}{.}\PYG{n}{top}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
 \PYG{+w}{            }\PYG{n}{R}\PYG{p}{[}\PYG{n}{st}\PYG{p}{.}\PYG{n}{top}\PYG{p}{(}\PYG{p}{)}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{i}\PYG{p}{;}
 \PYG{+w}{        }\PYG{p}{\PYGZcb{}}
 \PYG{+w}{        }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{last}\PYG{+w}{ }\PYG{o}{!}\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{)}
 \PYG{+w}{        }\PYG{p}{\PYGZob{}}
-\PYG{+w}{            }\PYG{c+c1}{// i is the nearest greater on the right for `last`}
 \PYG{+w}{            }\PYG{n}{parent}\PYG{p}{[}\PYG{n}{last}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{i}\PYG{p}{;}
 \PYG{+w}{            }\PYG{n}{L}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{last}\PYG{p}{;}
 \PYG{+w}{        }\PYG{p}{\PYGZcb{}}
 \PYG{+w}{        }\PYG{n}{st}\PYG{p}{.}\PYG{n}{push}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)}\PYG{p}{;}
 \PYG{+w}{    }\PYG{p}{\PYGZcb{}}
-
-\PYG{+w}{    }\PYG{c+c1}{// Find root (node with no parent)}
 \PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{root}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{;}
 \PYG{+w}{    }\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{+}\PYG{o}{+}\PYG{p}{)}
 \PYG{+w}{    }\PYG{p}{\PYGZob{}}
