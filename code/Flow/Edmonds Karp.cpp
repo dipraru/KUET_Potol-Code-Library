@@ -9,14 +9,12 @@ struct EdmondsKarp
         capacity.assign(n + 1, vector<int>(n + 1, 0));
         adj.resize(n + 1);
     }
-
     void add_edge(int u, int v, int cap)
     {
         capacity[u][v] += cap;
         adj[u].push_back(v);
         adj[v].push_back(u); // Reverse edge
     }
-
     int bfs(int s, int t, vector<int> &parent)
     {
         fill(parent.begin(), parent.end(), -1);
@@ -34,15 +32,13 @@ struct EdmondsKarp
                 {
                     parent[v] = u;
                     int new_flow = min(flow, capacity[u][v]);
-                    if (v == t)
-                        return new_flow;
+                    if (v == t) return new_flow;
                     q.push({v, new_flow});
                 }
             }
         }
         return 0;
     }
-
     int max_flow(int s, int t)
     {
         int flow = 0, new_flow;

@@ -5,21 +5,17 @@ struct MinCostMaxFlow
         int v, rev;    // Destination and index of the reverse edge
         int cap, cost; // Capacity and cost of the edge
     };
-
     vector<vector<Edge>> adj;
     int n;
-
     MinCostMaxFlow(int n) : n(n)
     {
         adj.resize(n + 1); // 1-based indexing
     }
-
     void add_edge(int u, int v, int cap, int cost)
     {
         adj[u].push_back({v, (int)adj[v].size(), cap, cost});
         adj[v].push_back({u, (int)adj[u].size() - 1, 0, -cost});
     }
-
     bool spfa(int s, int t, vector<int> &parent, vector<int> &edge_index, vector<int> &dist)
     {
         dist.assign(n + 1, INF);

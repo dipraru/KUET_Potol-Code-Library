@@ -5,7 +5,6 @@ public:
     int n, m;
     vector<vector<int>> adj;
     vector<int> pairU, pairV, dist;
-
     HopcroftKarp(int n, int m) : n(n), m(m)
     {
         adj.resize(n + 1);
@@ -13,12 +12,10 @@ public:
         pairV.assign(m + 1, 0);
         dist.assign(n + 1, 0);
     }
-
     void addEdge(int u, int v)
     {
         adj[u].push_back(v);
     }
-
     bool bfs()
     {
         queue<int> q;
@@ -29,10 +26,7 @@ public:
                 dist[u] = 0;
                 q.push(u);
             }
-            else
-            {
-                dist[u] = INT_MAX;
-            }
+            else dist[u] = INT_MAX;
         }
         dist[0] = INT_MAX;
 
@@ -54,24 +48,20 @@ public:
         }
         return dist[0] != INT_MAX;
     }
-
     bool dfs(int u)
     {
-        if (u != 0)
+        if (u == 0) return true;
+        for (int v : adj[u])
         {
-            for (int v : adj[u])
+            if (dist[pairV[v]] == dist[u] + 1 && dfs(pairV[v]))
             {
-                if (dist[pairV[v]] == dist[u] + 1 && dfs(pairV[v]))
-                {
-                    pairV[v] = u;
-                    pairU[u] = v;
-                    return true;
-                }
+                pairV[v] = u;
+                pairU[u] = v;
+                return true;
             }
-            dist[u] = INT_MAX;
-            return false;
         }
-        return true;
+        dist[u] = INT_MAX;
+        return false;
     }
 
     int maxMatching()
@@ -80,12 +70,7 @@ public:
         while (bfs())
         {
             for (int u = 1; u <= n; ++u)
-            {
-                if (pairU[u] == 0 && dfs(u))
-                {
-                    matching++;
-                }
-            }
+                if (pairU[u] == 0 && dfs(u)) matching++;
         }
         return matching;
     }

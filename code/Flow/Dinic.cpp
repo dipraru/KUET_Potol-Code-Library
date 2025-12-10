@@ -12,14 +12,12 @@ struct Dinic
         level.resize(n + 1);
         ptr.resize(n + 1);
     }
-
     void add_edge(int u, int v, int cap)
     {
         capacity[u][v] += cap;
         adj[u].push_back(v);
         adj[v].push_back(u);
     }
-
     bool bfs(int s, int t)
     {
         fill(level.begin(), level.end(), -1);
@@ -42,7 +40,6 @@ struct Dinic
         }
         return level[t] != -1;
     }
-
     int dfs(int u, int t, int flow)
     {
         if (u == t || flow == 0)
@@ -63,7 +60,6 @@ struct Dinic
         }
         return 0;
     }
-
     int max_flow(int s, int t)
     {
         int flow = 0;
