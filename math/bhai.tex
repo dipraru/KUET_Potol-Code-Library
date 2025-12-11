@@ -164,8 +164,91 @@ According to Pick’s Theorem We can calculate the area of any polygon by just c
 
     \item $\sum\limits_{i=0}^\infty c^i = \frac{1}{1-c}, \sum\limits_{i=1}^\infty c^i = \frac{c}{1-c}, |c|< 1$
 
+    \item $\sum\limits_{i=0}^{n-1} ar^i = a\,\frac{1-r^n}{1-r}, \ r\neq 1$
+
+    \item $\sum\limits_{i=1}^{n} i r^{i-1} = \frac{1 - (n+1) r^{n} + n r^{n+1}}{(1-r)^2}, \ r\neq 1$
+
+    \item $\sum\limits_{i=1}^{n} i r^{i} = \frac{r\big(1 - (n+1) r^{n} + n r^{n+1}\big)}{(1-r)^2}, \ r\neq 1$
+
+    \item $1 + x + x^2 + x^3 + \cdots = \frac{1}{1-x}, \ |x| < 1$
+
+    \item $\sum\limits_{i=0}^\infty \frac{x^i}{i!} = e^{x}$
+
+    \item $\sum\limits_{i=0}^\infty (-1)^i \frac{x^i}{i!} = e^{-x}$
+
+    \item $\sum\limits_{i=0}^\infty (-1)^i \frac{x^{2i+1}}{(2i+1)!} = \sin x$
+
+    \item $\sum\limits_{i=0}^\infty (-1)^i \frac{x^{2i}}{(2i)!} = \cos x$
+
+    \item $\sum\limits_{i=0}^\infty \frac{x^{2i+1}}{(2i+1)!} = \sinh x$
+
+    \item $\sum\limits_{i=0}^\infty \frac{x^{2i}}{(2i)!} = \cosh x$
+
+    \item $(1 + x)^\alpha = \sum\limits_{i=0}^\infty \binom{\alpha}{i} x^i, \ |x| < 1$
+
+    \item $\frac{1}{1+x^2} = \sum\limits_{i=0}^\infty (-1)^i x^{2i}, \ |x| < 1$
+
+    \item $\arctan x = \sum\limits_{i=0}^\infty (-1)^i \frac{x^{2i+1}}{2i+1}, \ |x| \le 1, \ x \neq \pm 1$
+
+    \item $\frac{1}{1-x^2} = \sum\limits_{i=0}^\infty x^{2i}, \ |x| < 1$
+
+    \item $\frac{1}{(1-x)^2} = \sum\limits_{i=1}^\infty i x^{i-1}, \ |x| < 1$
+
+    \item $\frac{x}{(1-x)^2} = \sum\limits_{i=1}^\infty i x^{i}, \ |x| < 1$
+
+    \item $\ln(1+x) = \sum\limits_{i=1}^\infty (-1)^{i+1} \frac{x^{i}}{i}, \ |x| < 1$
+
+    \item $\ln\left(\frac{1+x}{1-x}\right) = 2 \sum\limits_{i=0}^\infty \frac{x^{2i+1}}{2i+1}, \ |x| < 1$
+
     \item $H_n = \sum\limits_{i=1}^n \frac{1}{n}, \sum\limits_{i=1}^n iH_i = \frac{n(n+1)}{2}H_n - \frac{n(n-1)}{4}$
 
     \item $\sum\limits_{k=0}^n\binom{r+k}{k} =\binom{r+n+1}{n}$
-   
+
+    \item $\sum\limits_{i=r}^n\binom{i}{r} =\binom{n+1}{r+1}$
+
+    \item $\sum\limits_{i=0}^n i\binom{n}{i} = n2^{n-1}$   
+    \item $\sum\limits_{i=0}^n i^2\binom{n}{i} = n(n+1)2^{n-2}$
+    \item $\sum\limits_{i=0}^n k^i \binom{n}{i} = (k+1)^n$
+    \item $\sum\limits_{i=1}^n F_i = F_{n+2} - 1$
+    \item $\sum\limits_{i=1}^n F_{2i} = F_n F_{n+1}$
+    \item $\sum\limits_{i=1}^n i^2 = \frac{n(n+1)(2n+1)}{6}$
+    \item $\sum\limits_{i=1}^n i^3 = \left(\frac{n(n+1)}{2}\right)^2$
+\end{itemize}
+
+\subsubsection{3D Geometry}
+\vspace{2.5mm}
+\begin{itemize}
+    \item Distance between points $A(x_1,y_1,z_1)$ and $B(x_2,y_2,z_2)$: $|AB| = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2 + (z_2 - z_1)^2}$
+    \item Angle between vectors $\vec{u}$ and $\vec{v}$: $\cos \theta = \frac{\vec{u} \cdot \vec{v}}{\lVert \vec{u} \rVert \lVert \vec{v} \rVert}$
+    \item Area of triangle with edge vectors $\vec{u}, \vec{v}$: $\frac{1}{2}\lVert \vec{u} \times \vec{v} \rVert$
+    \item Volume of parallelepiped with generators $\vec{u},\vec{v},\vec{w}$: $V = |\vec{u} \cdot (\vec{v} \times \vec{w})|$
+    \item Distance from point $P(x_0,y_0,z_0)$ to plane $ax + by + cz + d = 0$: $\frac{|ax_0 + by_0 + cz_0 + d|}{\sqrt{a^2 + b^2 + c^2}}$
+    \item Plane through three points $A,B,C$: $\vec{n} = \overrightarrow{AB} \times \overrightarrow{AC}$, equation $\vec{n} \cdot (\vec{r} - \vec{r}_A) = 0$
+    \item Plane from point $P_0(x_0,y_0,z_0)$ and normal $\vec{n}=(a,b,c)$: $a(x-x_0) + b(y-y_0) + c(z-z_0) = 0$
+    \item Distance between parallel planes $ax+by+cz+d_1=0$ and $ax+by+cz+d_2=0$: $\frac{|d_1-d_2|}{\sqrt{a^2+b^2+c^2}}$
+    \item Distance from point $P$ to line through $A$ with direction $\vec{d}$: $\frac{\lVert \overrightarrow{AP} \times \vec{d} \rVert}{\lVert \vec{d} \rVert}$
+    \item Shortest distance between skew lines $L_1: \vec{r} = \vec{a}_1 + s\vec{d}_1$ and $L_2: \vec{r} = \vec{a}_2 + t\vec{d}_2$: $\frac{|(\vec{a}_2 - \vec{a}_1) \cdot (\vec{d}_1 \times \vec{d}_2)|}{\lVert \vec{d}_1 \times \vec{d}_2 \rVert}$
+    \item Line through two points $A(x_1,y_1,z_1)$ and $B(x_2,y_2,z_2)$: $\frac{x-x_1}{x_2-x_1} = \frac{y-y_1}{y_2-y_1} = \frac{z-z_1}{z_2-z_1}$
+    \item Plane through $A(x_1,y_1,z_1), B(x_2,y_2,z_2), C(x_3,y_3,z_3)$: $\begin{vmatrix}
+    x-x_1 & y-y_1 & z-z_1 \\
+    x_2-x_1 & y_2-y_1 & z_2-z_1 \\
+    x_3-x_1 & y_3-y_1 & z_3-z_1
+    \end{vmatrix} = 0$
+    \item Coplanarity of $A,B,C,D$: $\begin{vmatrix}
+    x_A & y_A & z_A & 1 \\
+    x_B & y_B & z_B & 1 \\
+    x_C & y_C & z_C & 1 \\
+    x_D & y_D & z_D & 1
+    \end{vmatrix} = 0$
+    \item Plane intercept form cutting axes at $a,b,c$: $\frac{x}{a} + \frac{y}{b} + \frac{z}{c} = 1$
+    \item Angle between two planes with normals $\vec{n}_1, \vec{n}_2$: $\cos \theta = \frac{|\vec{n}_1 \cdot \vec{n}_2|}{\lVert \vec{n}_1 \rVert \lVert \vec{n}_2 \rVert}$
+    \item Line-plane intersection for line $\vec{p} = \vec{p}_0 + t\vec{d}$ and plane $ax + by + cz + d = 0$: $t = -\frac{a x_0 + b y_0 + c z_0 + d}{a d_x + b d_y + c d_z}$ when denominator non-zero
+    \item Parametric line from point $P_0(x_0,y_0,z_0)$ with direction $(a,b,c)$: $x = x_0 + at, y = y_0 + bt, z = z_0 + ct$
+    \item Line with direction ratios $(l,m,n)$ through $P_0$: symmetric form $\frac{x-x_0}{l} = \frac{y-y_0}{m} = \frac{z-z_0}{n}$; direction cosines $(\cos\alpha, \cos\beta, \cos\gamma)$ satisfy $\cos^2\alpha + \cos^2\beta + \cos^2\gamma = 1$
+    \item Angle between line with direction ratios $(l,m,n)$ and plane $ax+by+cz+d=0$: $\sin \theta = \frac{|al + bm + cn|}{\sqrt{l^2+m^2+n^2}\sqrt{a^2 + b^2 + c^2}}$
+    \item Midpoint of segment joining $A(x_1,y_1,z_1)$ and $B(x_2,y_2,z_2)$: $M\big(\frac{x_1+x_2}{2}, \frac{y_1+y_2}{2}, \frac{z_1+z_2}{2}\big)$
+    \item Centroid of triangle with vertices $A,B,C$: $G\big(\frac{x_A+x_B+x_C}{3}, \frac{y_A+y_B+y_C}{3}, \frac{z_A+z_B+z_C}{3}\big)$
+    \item Centroid of tetrahedron with vertices $A,B,C,D$: $\big(\frac{x_A+x_B+x_C+x_D}{4}, \frac{y_A+y_B+y_C+y_D}{4}, \frac{z_A+z_B+z_C+z_D}{4}\big)$
+    \item Sphere of radius r: surface $S = 4\pi r^2$, volume $V = \frac{4}{3}\pi r^3$
+    \item Right circular cone (radius r, height h): $V = \frac{1}{3}\pi r^2 h$, lateral area $\pi r \sqrt{r^2 + h^2}$
 \end{itemize}
