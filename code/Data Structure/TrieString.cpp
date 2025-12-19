@@ -13,7 +13,6 @@ struct TNode
         }
     }
 };
-
 struct Trie
 {
     TNode *root;
@@ -27,10 +26,7 @@ struct Trie
         for (char ch : s)
         {
             int idx = ch - 'a';
-            if (rt->child[idx] == nullptr)
-            {
-                rt->child[idx] = new TNode();
-            }
+            if (rt->child[idx] == nullptr) rt->child[idx] = new TNode();
             rt = rt->child[idx];
             rt->cnt++;
         }
@@ -42,15 +38,11 @@ struct Trie
         for (int i = 0; i < s.size(); i++)
         {
             int idx = s[i] - 'a';
-            if (rt->child[idx] == nullptr)
-            {
-                return false;
-            }
+            if (rt->child[idx] == nullptr) return false;
             rt = rt->child[idx];
         }
         return rt->isTerm;
     }
-
     bool deleteHelper(TNode *rt, const string &s, int pos)
     {
         if (pos == s.length())
@@ -76,14 +68,8 @@ struct Trie
     }
     void clear(TNode *rt)
     {
-        if (!rt)
-        {
-            return;
-        }
-        for (int i = 0; i < 26; i++)
-        {
-            clear(rt->child[i]);
-        }
+        if (!rt) return;
+        for (int i = 0; i < 26; i++) clear(rt->child[i]);
         delete rt;
     }
     ~Trie()

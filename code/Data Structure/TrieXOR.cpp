@@ -20,7 +20,6 @@ public:
     {
         root = new Node();
     }
-    // Insert a number into the Trie
     void insert(int val)
     {
         Node *cur = root;
@@ -86,5 +85,30 @@ public:
             }
         }
         return result;
+    }
+    void erase(int val)
+    {
+        Node *cur = root;
+        cur->sz--;
+        for (int i = B - 1; i >= 0; --i)
+        {
+            int bit = (val >> i) & 1;
+            Node *next = cur->nxt[bit];
+            next->sz--;
+            if (next->sz == 0)
+            {
+                clear(next);
+                cur->nxt[bit] = nullptr;
+                return;
+            }
+            cur = next;
+        }
+    }
+    void clear(Node *node)
+    {
+        if (!node) return;
+        clear(node->nxt[0]);
+        clear(node->nxt[1]);
+        delete node;
     }
 };
